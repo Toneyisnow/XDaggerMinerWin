@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XDaggerMinerDaemon", "XDagg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XDaggerMinerService", "XDaggerMinerService\XDaggerMinerService.csproj", "{194CAAF6-54D4-48DB-9602-F5645B1C18BC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.vcxproj", "{C76D3861-303A-4EA6-B990-D93A0D9B367D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XDaggerMinerRuntimeCLI", "XDaggerMinerRuntimeCLI\XDaggerMinerRuntimeCLI.vcxproj", "{F9E05185-5AF2-454E-A901-A3326DD59701}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,11 +23,11 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F3A38A81-E395-45B1-9832-01AF5D996580}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{F3A38A81-E395-45B1-9832-01AF5D996580}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{F3A38A81-E395-45B1-9832-01AF5D996580}.Debug|x64.ActiveCfg = Debug|x64
 		{F3A38A81-E395-45B1-9832-01AF5D996580}.Debug|x64.Build.0 = Debug|x64
-		{F3A38A81-E395-45B1-9832-01AF5D996580}.Debug|x86.ActiveCfg = Debug|Win32
-		{F3A38A81-E395-45B1-9832-01AF5D996580}.Debug|x86.Build.0 = Debug|Win32
+		{F3A38A81-E395-45B1-9832-01AF5D996580}.Debug|x86.ActiveCfg = Debug|x64
+		{F3A38A81-E395-45B1-9832-01AF5D996580}.Debug|x86.Build.0 = Debug|x64
 		{F3A38A81-E395-45B1-9832-01AF5D996580}.Release|Any CPU.ActiveCfg = Release|Win32
 		{F3A38A81-E395-45B1-9832-01AF5D996580}.Release|x64.ActiveCfg = Release|x64
 		{F3A38A81-E395-45B1-9832-01AF5D996580}.Release|x64.Build.0 = Release|x64
@@ -53,6 +57,26 @@ Global
 		{194CAAF6-54D4-48DB-9602-F5645B1C18BC}.Release|x64.Build.0 = Release|Any CPU
 		{194CAAF6-54D4-48DB-9602-F5645B1C18BC}.Release|x86.ActiveCfg = Release|Any CPU
 		{194CAAF6-54D4-48DB-9602-F5645B1C18BC}.Release|x86.Build.0 = Release|Any CPU
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Debug|x64.ActiveCfg = Debug|x64
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Debug|x64.Build.0 = Debug|x64
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Debug|x86.ActiveCfg = Debug|Win32
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Debug|x86.Build.0 = Debug|Win32
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Release|Any CPU.ActiveCfg = Release|Win32
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Release|x64.ActiveCfg = Release|x64
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Release|x64.Build.0 = Release|x64
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Release|x86.ActiveCfg = Release|Win32
+		{C76D3861-303A-4EA6-B990-D93A0D9B367D}.Release|x86.Build.0 = Release|Win32
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Debug|x64.ActiveCfg = Debug|x64
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Debug|x64.Build.0 = Debug|x64
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Debug|x86.ActiveCfg = Debug|Win32
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Debug|x86.Build.0 = Debug|Win32
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Release|Any CPU.ActiveCfg = Release|Win32
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Release|x64.ActiveCfg = Release|x64
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Release|x64.Build.0 = Release|x64
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Release|x86.ActiveCfg = Release|Win32
+		{F9E05185-5AF2-454E-A901-A3326DD59701}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
