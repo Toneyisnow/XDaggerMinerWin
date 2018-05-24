@@ -15,7 +15,7 @@
 #include <functional>
 #include <string>
 #include <chrono>
-#include <boost/multiprecision/cpp_int.hpp>
+////#include <boost/multiprecision/cpp_int.hpp>
 
 namespace XDag
 {

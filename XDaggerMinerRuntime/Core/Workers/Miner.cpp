@@ -7,6 +7,7 @@
  */
 
 #include "Miner.h"
+#include <thread>
 
 XDag::Miner::Miner(std::string const& _name, uint32_t index, XTaskProcessor* taskProcessor) :
     Worker(_name + std::to_string(index)),

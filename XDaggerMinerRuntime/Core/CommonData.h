@@ -15,6 +15,7 @@
 #include <cstring>
 #include <string>
 #include "Common.h"
+#include <boost/multiprecision/cpp_int.hpp>
 
 namespace XDag
 {

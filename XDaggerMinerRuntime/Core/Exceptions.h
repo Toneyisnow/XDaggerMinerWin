@@ -10,14 +10,14 @@
 
 #include <exception>
 #include <string>
-#include <boost/exception/all.hpp>
-#include <boost/throw_exception.hpp>
+////#include <boost/exception/all.hpp>
+////#include <boost/throw_exception.hpp>
 #include "CommonData.h"
 
 namespace XDag
 {
     /// Base class for all exceptions.
-    struct Exception : virtual std::exception, virtual boost::exception
+    struct Exception : virtual std::exception
     {
         Exception(std::string _message = std::string()) : m_message(std::move(_message)) {}
         const char* what() const noexcept override { return m_message.empty() ? std::exception::what() : m_message.c_str(); }

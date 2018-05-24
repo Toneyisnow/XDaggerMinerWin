@@ -96,7 +96,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;RUNTIME_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;RUNTIME_EXPORTS;CL_HPP_ENABLE_EXCEPTIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -135,6 +135,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CoreV2\cl_device_utils.cpp" />
+    <ClCompile Include="CoreV2\miner_device.cpp" />
+    <ClCompile Include="CoreV2\miner_manager.cpp" />
     <ClCompile Include="Core\CommonData.cpp" />
     <ClCompile Include="Core\Farm.cpp" />
     <ClCompile Include="Core\Log.cpp" />
@@ -145,7 +148,6 @@
     <ClCompile Include="Core\Workers\XCpuMiner.cpp" />
     <ClCompile Include="Hash\sha256.cpp" />
     <ClCompile Include="Hash\sha256_mod.cpp" />
-    <ClCompile Include="MathLibrary.cpp" />
     <ClCompile Include="miner_runtime.cpp" />
     <ClCompile Include="Utils\CpuInfo.cpp" />
     <ClCompile Include="Utils\PathUtils.cpp" />
@@ -164,6 +166,9 @@
     <ClCompile Include="XDagCore\XTaskWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CoreV2\cl_device_utils.h" />
+    <ClInclude Include="CoreV2\miner_device.h" />
+    <ClInclude Include="CoreV2\miner_manager.h" />
     <ClInclude Include="Core\CL\cl2.hpp" />
     <ClInclude Include="Core\Common.h" />
     <ClInclude Include="Core\CommonData.h" />
@@ -179,7 +184,6 @@
     <ClInclude Include="Core\Workers\XCpuMiner.h" />
     <ClInclude Include="Hash\sha256.h" />
     <ClInclude Include="Hash\sha256_mod.h" />
-    <ClInclude Include="MathLibrary.h" />
     <ClInclude Include="miner_runtime.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Utils\CpuInfo.h" />

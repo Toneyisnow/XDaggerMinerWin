@@ -9,6 +9,7 @@
 #include "CommonData.h"
 #include <cstdlib>
 #include "Exceptions.h"
+#include <boost/multiprecision/cpp_int.hpp>
 
 using namespace XDag;
 
@@ -28,7 +29,7 @@ int XDag::FromHex(char i, WhenError _throw)
     }
     if(_throw == WhenError::Throw)
     {
-        BOOST_THROW_EXCEPTION(BadHexCharacter() << errinfo_invalidSymbol(i));
+        ////BOOST_THROW_EXCEPTION(BadHexCharacter() << errinfo_invalidSymbol(i));
     }
     else
     {

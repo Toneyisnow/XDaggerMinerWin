@@ -38,6 +38,9 @@
     <Filter Include="XDagCore\win\netinet">
       <UniqueIdentifier>{dbd59a99-5c6a-489f-a1bf-8708106e7ab9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CoreV2">
+      <UniqueIdentifier>{fccc3f06-df90-4575-806a-d0ef652ecca9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Hash\sha256.cpp">
@@ -115,8 +118,16 @@
     <ClCompile Include="XDagCore\win\system.cpp">
       <Filter>XDagCore\win</Filter>
     </ClCompile>
-    <ClCompile Include="MathLibrary.cpp" />
     <ClCompile Include="miner_runtime.cpp" />
+    <ClCompile Include="CoreV2\miner_manager.cpp">
+      <Filter>CoreV2</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreV2\miner_device.cpp">
+      <Filter>CoreV2</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreV2\cl_device_utils.cpp">
+      <Filter>CoreV2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hash\sha256.h">
@@ -225,8 +236,16 @@
       <Filter>XDagCore\win\sys</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="MathLibrary.h" />
     <ClInclude Include="miner_runtime.h" />
+    <ClInclude Include="CoreV2\miner_manager.h">
+      <Filter>CoreV2</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreV2\miner_device.h">
+      <Filter>CoreV2</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreV2\cl_device_utils.h">
+      <Filter>CoreV2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

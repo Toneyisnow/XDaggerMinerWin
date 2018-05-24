@@ -17,7 +17,7 @@ namespace XDaggerMinerService
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service1()
+                new MinerService()
             };
             ServiceBase.Run(ServicesToRun);
         }

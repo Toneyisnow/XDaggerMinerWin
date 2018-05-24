@@ -1,10 +1,10 @@
 // This is the main DLL file.
 
 #include "stdafx.h"
+#include <msclr\marshal_cppstd.h>
+
 
 #include "XDaggerMinerRuntimeCLI.h"
 
-int XDaggerMinerRuntimeCLI::Runtime::GetDevice()
-{
-	return this->runtime->getDevices();
-}
+
+

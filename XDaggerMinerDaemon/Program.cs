@@ -14,13 +14,17 @@ namespace XDaggerMinerDaemon
 
         static void Main(string[] args)
         {
-            Runtime run = new Runtime();
-            Console.WriteLine(run.GetDevice());
-            
+
+            ///  MinerManager
+            MinerManager manager = new MinerManager();
+            List<MinerDevice> devices = manager.GetAllMinerDevices();
+
+            foreach (MinerDevice device in devices)
+            {
+                Console.WriteLine(device.GetDisplayName());
+            }
+
             Console.ReadKey();
-
-            
-
             /// HelloWorld();
         }
     }

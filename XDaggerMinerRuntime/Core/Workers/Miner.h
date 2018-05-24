@@ -9,7 +9,6 @@
 #pragma once
 
 #include "Worker.h"
-#include <thread>
 #include <list>
 #include <vector>
 #include <string>

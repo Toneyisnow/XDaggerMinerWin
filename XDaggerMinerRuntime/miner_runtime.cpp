@@ -3,18 +3,8 @@
 
 #include "miner_runtime.h"
 
-XDaggerMinerRuntime::Runtime::Runtime()
-{
-
-}
-
-int XDaggerMinerRuntime::Runtime::getDevices()
-{
-	return 99;
-}
+using namespace XDaggerMinerRuntime;
+using namespace std;
 
 
-int XDaggerMinerRuntime::Runtime::getValue()
-{
-	return 99;
-}
+
