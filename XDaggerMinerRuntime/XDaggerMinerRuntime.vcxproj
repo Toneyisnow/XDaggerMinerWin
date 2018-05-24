@@ -106,6 +106,9 @@
     <ProjectReference>
       <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>copy Core\CL\CLMiner_kernel.cl "$(OutDir)CLMiner_kernel.cl" /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -208,7 +211,9 @@
     <ClInclude Include="XDagCore\XTime.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Core\CL\CLMiner_kernel.cl" />
+    <None Include="Core\CL\CLMiner_kernel.cl">
+      <DeploymentContent>false</DeploymentContent>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

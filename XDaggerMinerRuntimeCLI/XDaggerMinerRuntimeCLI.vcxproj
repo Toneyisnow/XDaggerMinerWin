@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="source\LoggerBase.h" />
     <ClInclude Include="source\MinerDevice.h" />
     <ClInclude Include="source\MinerManager.h" />
     <ClInclude Include="Stdafx.h" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="source\LoggerBase.cpp" />
     <ClCompile Include="source\MinerDevice.cpp" />
     <ClCompile Include="source\MinerManager.cpp" />
     <ClCompile Include="Stdafx.cpp" />

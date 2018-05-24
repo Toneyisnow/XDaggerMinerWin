@@ -10,15 +10,38 @@
 ////#include <boost/algorithm/string/trim_all.hpp>
 ////#include <boost/optional.hpp>
 
+#include <stdio.h>
 #include "stdafx.h"
 #include "miner_device.h"
 
 /// #include "Core/Exceptions.h"
 /// #include "Core/Workers/CLMiner.h"
 
+extern "C"
+{
+
+	typedef void(__stdcall * LoggerCallback)(int, int, std::string);
+
+	////NATIVE_LIB_EXPORT void DoWork(ProgressCallback progressCallback);
+	////NATIVE_LIB_EXPORT void ProcessFile(GetFilePathCallback getPath);
+
+}
 
 namespace XDaggerMinerRuntime
 {
+
+	
+	// TODO: Seems not useful anymore
+	class NATIVE_LIB_EXPORT Logger {
+	public:
+		Logger();
+
+	protected:
+
+		void write();
+	};
+
+
 	//
 	// The main methods for CLI to call
 	//
@@ -26,19 +49,30 @@ namespace XDaggerMinerRuntime
 	public:
 		MinerManager();
 
-		void execute();
+		void setLogCallback(LoggerCallback loggerFunction);
+		
+		// Main Functions
 
 		std::vector< MinerDevice* > getAllMinerDevices();
 
+		void doMining(std::string& remote, unsigned recheckPeriod);
+
 	private:
 
-		void doMining(std::string& remote, unsigned recheckPeriod);
-	
+		
 		// void doBenchmark(MinerType type, unsigned warmupDuration = 15, unsigned trialDuration = 3, unsigned trials = 5);
 		// void doMining(MinerType type, std::string& remote, unsigned recheckPeriod);
 		void configureGpu();
 		void configureCpu();
 		///void fillRandomTask(XTaskWrapper *taskWrapper);
+		
+		
+		// Loggers
+		LoggerCallback _logCallback;
+		void logInformation(int eventId, std::string message);
+		void logWarning(int eventId, std::string message);
+		void logError(int eventId, std::string message);
+
 
 
 

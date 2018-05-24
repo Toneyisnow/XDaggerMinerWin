@@ -676,6 +676,8 @@ HwMonitor CLMiner::Hwmon()
 bool CLMiner::LoadKernelCode()
 {
     std::string path = PathUtils::GetModuleFolder();
+	std::cout << "LoadKernelCode:ModuleFolder: " << path;
+
     path += _clKernelName;
     if(!PathUtils::FileExists(path))
     {
