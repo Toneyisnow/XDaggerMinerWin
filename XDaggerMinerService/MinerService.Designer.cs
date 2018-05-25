@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.minerEventLog = new MinerEventLog();
-            
-
-
-            ((System.ComponentModel.ISupportInitialize)(this.minerEventLog)).BeginInit();
             // 
             // MinerService
             // 
             this.ServiceName = "MinerService";
-            ((System.ComponentModel.ISupportInitialize)(this.minerEventLog)).EndInit();
-
         }
 
         #endregion
