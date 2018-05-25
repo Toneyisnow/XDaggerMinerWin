@@ -30,7 +30,7 @@ namespace XDaggerMinerRuntimeCLI {
 		
 		void SetLogger(LoggerBase ^ logger);
 
-		void DoMining();
+		void DoMining(String ^ poolAddress, String ^ walletAddress);
 
 	private:
 		// List<String^>^ dinosaurs = gcnew List<String^>();

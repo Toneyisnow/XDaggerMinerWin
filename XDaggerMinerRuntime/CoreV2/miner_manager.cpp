@@ -80,6 +80,87 @@ std::vector< MinerDevice* > MinerManager::getAllMinerDevices()
 	return resultList;
 }
 
+void MinerManager::doMining(std::string poolAddress, std::string walletAddress)
+{
+	XTaskProcessor taskProcessor;
+	XPool pool(walletAddress, poolAddress, &taskProcessor);
+
+
+	if (!pool.Initialize())
+	{
+		logError(0, "Pool initialization error");
+		return;
+	}
+	if (!pool.Connect())
+	{
+		logError(0, "Cannot connect to pool");
+		return;
+	}
+
+	//wait a bit
+	logInformation(0, "Wait for a bit...");
+	this_thread::sleep_for(chrono::milliseconds(200));
+
+	logInformation(0, "Create Farm and Add Seeker...");
+	Farm farm(&taskProcessor);
+	farm.AddSeeker(Farm::SeekerDescriptor{ &CLMiner::Instances, [](unsigned index, XTaskProcessor* taskProcessor) { return new CLMiner(index, taskProcessor); } });
+
+	if (!farm.Start())
+	{
+		logError(0, "Failed to start mining");
+		return;
+	}
+	logInformation(0, "Farm Started.");
+
+	uint32_t iteration = 0;
+	bool isConnected = true;
+	while (_running)
+	{
+		if (!isConnected)
+		{
+			isConnected = pool.Connect();
+			if (isConnected)
+			{
+				if (!farm.Start())
+				{
+					logError(0, "Failed to restart mining");
+					return;
+				}
+			}
+			else
+			{
+				logError(0, "Cannot connect to pool. Reconnection...");
+				this_thread::sleep_for(chrono::milliseconds(5000));
+				continue;
+			}
+		}
+
+		if (!pool.Interract())
+		{
+			pool.Disconnect();
+			farm.Stop();
+			isConnected = false;
+			logError(0, "Failed to get data from pool. Reconnection...");
+			this_thread::sleep_for(chrono::milliseconds(5000));
+			continue;
+		}
+
+		if (iteration > 0 && (iteration & 1) == 0)
+		{
+			auto mp = farm.MiningProgress();
+			//// minelog << mp;
+		}
+
+		this_thread::sleep_for(chrono::milliseconds(_poolRecheckPeriod));
+		++iteration;
+	}
+
+	farm.Stop();
+}
+
+
+
+
 void MinerManager::doMining(std::string& remote, unsigned recheckPeriod)
 {
 

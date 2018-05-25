@@ -15,7 +15,8 @@ MinerManager::MinerManager()
 	
 	// Set Logger Callback
 	LoggerCallback^ writLogFunc = gcnew LoggerCallback(this, &MinerManager::WriteLog);
-	GCHandle gc = GCHandle::Alloc(writLogFunc);	IntPtr func = Marshal::GetFunctionPointerForDelegate(writLogFunc);
+	GCHandle gc = GCHandle::Alloc(writLogFunc);
+	IntPtr func = Marshal::GetFunctionPointerForDelegate(writLogFunc);
 	LoggerCallbackFunc necb = static_cast<LoggerCallbackFunc>(func.ToPointer());
 	this->_impl->setLogCallback(necb);
 
@@ -37,10 +38,12 @@ List<MinerDevice^>^ MinerManager::GetAllMinerDevices()
 	return resultList;
 }
 
-void MinerManager::DoMining()
+void MinerManager::DoMining(String ^ poolAddress, String ^ walletAddress)
 {
-	std::string test = "asdf";
-	this->_impl->doMining(test, 0);
+	std::string poolAddressStd = msclr::interop::marshal_as<std::string>(poolAddress);
+	std::string walletAddressStd = msclr::interop::marshal_as<std::string>(walletAddress);
+
+	this->_impl->doMining(poolAddressStd, walletAddressStd);
 }
 
 void MinerManager::SetLogger(LoggerBase ^ logger)

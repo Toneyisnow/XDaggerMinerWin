@@ -1,5 +1,9 @@
 #pragma once
 
+//
+// NOTE: This header file will be included in C++/CLR project, so DO NOT include boost/thread/mutex and Core headers here, use them in cpp file.
+// 
+
 #include <chrono>
 #include <fstream>
 #include <iostream>
@@ -19,11 +23,7 @@
 
 extern "C"
 {
-
 	typedef void(__stdcall * LoggerCallback)(int, int, std::string);
-
-	////NATIVE_LIB_EXPORT void DoWork(ProgressCallback progressCallback);
-	////NATIVE_LIB_EXPORT void ProcessFile(GetFilePathCallback getPath);
 
 }
 
@@ -56,6 +56,7 @@ namespace XDaggerMinerRuntime
 		std::vector< MinerDevice* > getAllMinerDevices();
 
 		void doMining(std::string& remote, unsigned recheckPeriod);
+		void doMining(std::string poolAddress, std::string walletAddress);	// DEPRECATED
 
 	private:
 
