@@ -25,6 +25,7 @@ namespace XDaggerMinerDaemon
             }
 
             this.Version = configFile.version;
+            this.IsFakeRun = configFile.is_fake_run;
             this.WalletAddress = configFile.wallet_address;
             this.PoolAddress = configFile.pool_address;
 
@@ -33,6 +34,11 @@ namespace XDaggerMinerDaemon
         #region Properties for Config
 
         public string Version
+        {
+            get; private set;
+        }
+
+        public bool IsFakeRun
         {
             get; private set;
         }
@@ -68,6 +74,7 @@ namespace XDaggerMinerDaemon
         {
             MinerConfigFile configFile = new MinerConfigFile();
             configFile.version = this.Version;
+            configFile.is_fake_run = this.IsFakeRun;
             configFile.pool_address = this.PoolAddress;
             configFile.wallet_address = this.WalletAddress;
 
@@ -106,6 +113,7 @@ namespace XDaggerMinerDaemon
         public string wallet_address;
         public string machine_name;
         public string ip_address;
+        public bool is_fake_run;
 
         public List<MinerConfigDevice> device_list;
     };

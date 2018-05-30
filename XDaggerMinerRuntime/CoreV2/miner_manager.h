@@ -48,6 +48,7 @@ namespace XDaggerMinerRuntime
 	class NATIVE_LIB_EXPORT MinerManager {
 	public:
 		MinerManager();
+		MinerManager(bool isFakeRun);
 
 		void setLogCallback(LoggerCallback loggerFunction);
 		
@@ -55,8 +56,8 @@ namespace XDaggerMinerRuntime
 
 		std::vector< MinerDevice* > getAllMinerDevices();
 
-		void doMining(std::string& remote, unsigned recheckPeriod);
-		void doMining(std::string poolAddress, std::string walletAddress);	// DEPRECATED
+		//// void doMining(std::string& remote, unsigned recheckPeriod);	// DEPRECATED
+		void doMining(std::string poolAddress, std::string walletAddress);
 
 	private:
 
@@ -74,6 +75,8 @@ namespace XDaggerMinerRuntime
 		void logWarning(int eventId, std::string message);
 		void logError(int eventId, std::string message);
 
+		void doRealMiningWork();
+		void MinerManager::doFakeMiningWork();
 
 
 
@@ -108,6 +111,11 @@ namespace XDaggerMinerRuntime
 		bool _show_hwmonitors = false;
 
 		std::string _fport = "";
+
+		// Context
+		bool _isFakeRun = true;
+
+
 	};
 
 

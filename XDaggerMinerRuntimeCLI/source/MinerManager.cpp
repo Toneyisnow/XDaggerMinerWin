@@ -22,6 +22,18 @@ MinerManager::MinerManager()
 
 }
 
+MinerManager::MinerManager(bool isFakeRun)
+{
+	this->_impl = new XDaggerMinerRuntime::MinerManager(isFakeRun);
+
+	// Set Logger Callback
+	LoggerCallback^ writLogFunc = gcnew LoggerCallback(this, &MinerManager::WriteLog);
+	GCHandle gc = GCHandle::Alloc(writLogFunc);
+	IntPtr func = Marshal::GetFunctionPointerForDelegate(writLogFunc);
+	LoggerCallbackFunc necb = static_cast<LoggerCallbackFunc>(func.ToPointer());
+	this->_impl->setLogCallback(necb);
+}
+
 List<MinerDevice^>^ MinerManager::GetAllMinerDevices()
 {
 	List<MinerDevice^>^ resultList = gcnew List<MinerDevice^>();

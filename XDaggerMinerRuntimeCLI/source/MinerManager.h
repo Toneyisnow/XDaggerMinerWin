@@ -24,6 +24,7 @@ namespace XDaggerMinerRuntimeCLI {
 	{
 	public:
 		MinerManager();
+		MinerManager(bool isFakeRun);
 
 		List<MinerDevice^>^ GetAllMinerDevices();
 
