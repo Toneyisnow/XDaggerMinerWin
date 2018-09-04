@@ -1,5 +1,6 @@
 # XDaggerMinerWin
 
+Note: this repository has been moved to private repro. Freeze this now.
 
 ## Structure
 
